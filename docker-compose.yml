@@ -1,0 +1,15 @@
+version: "3.73"
+
+services:
+  app:
+    build:
+      args:
+        user: joaomarcus
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: travellist # don't think its necessary
+    container_name: phpTDD
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
