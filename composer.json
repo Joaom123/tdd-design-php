@@ -1,0 +1,29 @@
+{
+  "name": "vendor_name/php-tdd",
+  "description": "TDD no mundo real com PHP",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "joaomarcus",
+      "email": "joaomarcus12769@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "phpunir/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {
+      "CDC\\Loja\\": [
+        "src/CDC/Loja",
+        "tests/CDC/Loja"
+      ],
+      "CDC\\Exemplos\\": [
+        "src/CDC/Exemplos",
+        "tests/CDC/Exemplos"
+      ]
+    }
+  }
+}
