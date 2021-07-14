@@ -1,0 +1,18 @@
+<phpunit colors="true" cacheResult="false">
+    <testsuites>
+        <testsuite name="maior e menor">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+<!--    <coverage>-->
+<!--        <report>-->
+<!--            <clover outputFile="clover.xml"/>-->
+<!--            <crap4j outputFile="crap4j.xml" threshold="50"/>-->
+<!--            <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90"/>-->
+<!--            <php outputFile="coverage.php"/>-->
+<!--            <text outputFile="coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>-->
+<!--            <xml outputDirectory="xml-coverage"/>-->
+<!--        </report>-->
+<!--    </coverage>-->
+</phpunit>
