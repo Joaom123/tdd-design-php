@@ -16,21 +16,21 @@ class CarrinhoDeCompras
         $this->produtos = new ArrayObject();
     }
 
-    public function adiciona(Produto $produto)
+    public function adiciona(Produto $produto): CarrinhoDeCompras
     {
         $this->produtos->append($produto);
         return $this;
     }
 
     /**
-     * @return \ArrayObject
+     * @return ArrayObject
      */
-    public function getProdutos(): \ArrayObject
+    public function getProdutos(): ArrayObject
     {
         return $this->produtos;
     }
 
-    public function maiorValor()
+    public function maiorValor(): float
     {
         if (count($this->getProdutos() === 0)) {
             return 0;
@@ -38,7 +38,7 @@ class CarrinhoDeCompras
 
         $maiorValor = $this->getProdutos()[0]->getValor();
         foreach ($this->getProdutos() as $produto) {
-            if($maiorValor < $produto->getValor()){
+            if ($maiorValor < $produto->getValor()) {
                 $maiorValor = $produto->getValor();
             }
 

@@ -6,8 +6,8 @@ namespace CDC\Loja\Produto;
 
 class Produto
 {
-    private $nome;
-    private $valor;
+    private String $nome;
+    private float $valor;
 
     public function __construct($nome, $valor)
     {
@@ -15,12 +15,12 @@ class Produto
         $this->valor = $valor;
     }
 
-    public function getNome()
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function getValor()
+    public function getValor(): float
     {
         return $this->valor;
     }

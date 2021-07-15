@@ -4,11 +4,13 @@
 namespace CDC\Loja\Carrinho;
 
 
+use CDC\Loja\Produto\Produto;
+
 class MaiorEMenor
 {
-    private $menor;
+    private Produto $menor;
 
-    private $maior;
+    private Produto $maior;
 
     public function encontra(CarrinhoDeCompras $carrinho)
     {
@@ -23,12 +25,12 @@ class MaiorEMenor
         }
     }
 
-    public function getMenor()
+    public function getMenor(): Produto
     {
         return $this->menor;
     }
 
-    public function getMaior()
+    public function getMaior(): Produto
     {
         return $this->maior;
     }
