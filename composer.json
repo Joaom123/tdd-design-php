@@ -12,7 +12,8 @@
   "require": {
   },
   "require-dev": {
-    "phpunir/phpunit": "^9"
+    "phpunir/phpunit": "^9",
+    "mockery/mockery": "^1.4.3"
   },
   "autoload": {
     "psr-4": {
