@@ -16,15 +16,15 @@ class GeradorDeNotaFiscalTest extends \PHPUnit\Framework\TestCase
         parent::setUp();
 
         $this->daoMock = Mockery::mock(NFDao::class);
-        $this->daoMock->shouldReceive("persiste")->andReturn(true);
+        $this->daoMock->shouldReceive("executa")->andReturn(true);
 
         $this->sapMock = Mockery::mock(SAP::class);
-        $this->sapMock->shouldReceive("envia")->andReturn(true);
+        $this->sapMock->shouldReceive("executa")->andReturn(true);
     }
 
     public function testDeveGerarNFComValorDeImpostoDescontado()
     {
-        $gerador = new GeradorDeNotaFiscal($this->daoMock, $this->sapMock);
+        $gerador = new GeradorDeNotaFiscal(array());
         $pedido = new Pedido("Andre", 1000, 1);
 
         $nf = $gerador->gera($pedido);
@@ -34,22 +34,22 @@ class GeradorDeNotaFiscalTest extends \PHPUnit\Framework\TestCase
 
     public function testDevePersistirNFGerada()
     {
-        $gerador = new GeradorDeNotaFiscal($this->daoMock, $this->sapMock);
+        $gerador = new GeradorDeNotaFiscal(array($this->daoMock));
         $pedido = new Pedido("Andre", 1000, 1);
         $nf = $gerador->gera($pedido);
 
-        $this->assertTrue($this->daoMock->persiste($nf));
+        $this->assertTrue($this->daoMock->executa($nf));
         $this->assertNotNull($nf);
         $this->assertEqualsWithDelta(1000 * 0.94, $nf->getValor(), 0.00001);
     }
 
     public function testDeveEnviarNFGeradaParaSAP()
     {
-        $gerador = new GeradorDeNotaFiscal($this->daoMock, $this->sapMock);
+        $gerador = new GeradorDeNotaFiscal(array($this->sapMock));
         $pedido = new Pedido("Andre", 1000, 1);
 
         $nf = $gerador->gera($pedido);
-        $this->assertTrue($this->sapMock->envia($nf));
+        $this->assertTrue($this->sapMock->executa($nf));
         $this->assertEqualsWithDelta(1000 * 0.94,
             $nf->getValor(), 0.00001);
     }
